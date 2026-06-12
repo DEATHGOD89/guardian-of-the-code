@@ -1,0 +1,21 @@
+rules:
+  - id: "XSS001"
+    name: "Potential XSS via unescaped output"
+    severity: "HIGH"
+    description: "Rendering unescaped user input can lead to Cross-Site Scripting (XSS)"
+    remediation: "Ensure input is escaped or sanitized before rendering to HTML"
+    languages: ["php", "html", "javascript"]
+    patterns:
+      - regex: '<\?php\s+echo\s+\$_GET\[.*\]'
+      - regex: '<\?php\s+echo\s+\$_POST\[.*\]'
+      - regex: '<\?php\s+echo\s+\$_REQUEST\[.*\]'
+      - keywords: ["document.write("]
+
+  - id: "XSS002"
+    name: "React dangerouslySetInnerHTML"
+    severity: "MEDIUM"
+    description: "Using dangerouslySetInnerHTML can expose the application to XSS"
+    remediation: "Avoid if possible, or sanitize input with DOMPurify"
+    languages: ["javascript", "ts"]
+    patterns:
+      - keywords: ["dangerouslySetInnerHTML"]

@@ -1,0 +1,30 @@
+rules:
+  - id: "PY001"
+    name: "Dangerous eval() usage"
+    severity: "HIGH"
+    description: "Using eval() can lead to arbitrary code execution"
+    remediation: "Use ast.literal_eval() instead of eval()"
+    languages: ["python"]
+    patterns:
+      - regex: 'eval\('
+      - keywords: ["eval("]
+    ignore_if_regex: 'ast\.literal_eval'
+
+  - id: "PY002"
+    name: "Debug code leftover"
+    severity: "LOW"
+    description: "Found breakpoint() or pdb.set_trace()"
+    remediation: "Remove debugging artifacts before deployment"
+    languages: ["python"]
+    patterns:
+      - keywords: ["breakpoint()", "pdb.set_trace()"]
+
+  - id: "PY003"
+    name: "Dangerous exec() usage"
+    severity: "CRITICAL"
+    description: "exec() can execute arbitrary python code"
+    remediation: "Avoid using exec(), find an alternative approach"
+    languages: ["python"]
+    patterns:
+      - regex: 'exec\('
+      - keywords: ["exec("]
