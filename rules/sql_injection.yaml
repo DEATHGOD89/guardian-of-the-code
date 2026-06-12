@@ -1,0 +1,14 @@
+rules:
+  - id: "SQL001"
+    name: "Raw SQL string concatenation"
+    severity: "HIGH"
+    description: "User input concatenated into SQL query → SQL injection risk"
+    remediation: "Use parameterized queries / ORM"
+    languages: ["python", "java", "javascript", "php", "ruby", "go"]
+    patterns:
+      - regex: '("|\')(?i:select|insert|update|delete).*\+.*'
+      - regex: '\.format\(.*\)\s*;\s*(?i:execute)'
+      - keywords: ["executeQuery", "exec", "query", "mysql_query"]
+      - context: "must be inside a string that is later passed to an execute method"
+    # optional: ignore when certain safe functions are present
+    ignore_if_regex: 'prepared_statement|bind_param|parametrized'

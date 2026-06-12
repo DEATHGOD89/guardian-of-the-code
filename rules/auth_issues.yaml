@@ -1,0 +1,11 @@
+rules:
+  - id: "AUTH001"
+    name: "Hardcoded password or secret"
+    severity: "CRITICAL"
+    description: "Plain text credential found in source code"
+    remediation: "Use environment variables or a secrets manager"
+    languages: ["*"]   # all languages
+    patterns:
+      - regex: 'password\s*=\s*["\'](?!.*(?:getenv|input|prompt)).+["\']'
+      - regex: 'api[_-]?key\s*=\s*["\'][A-Za-z0-9]{16,}["\']'
+      - keywords: ["secret_key =", "token =", "private_key ="]

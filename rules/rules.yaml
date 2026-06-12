@@ -1,0 +1,9 @@
+rules:
+  - id: "MY001"
+    name: "Debug leftover"
+    severity: "MEDIUM"
+    description: "Debug print statement found"
+    languages: ["python"]
+    patterns:
+      - regex: 'print\(.*debug'
+      - keywords: ["pprint"]
