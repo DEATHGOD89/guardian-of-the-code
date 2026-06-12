@@ -1,0 +1,15 @@
+rules:
+  - id: DJ001
+    name: "login_required missing on view"
+    severity: "HIGH"
+    languages: ["python"]
+    patterns:
+      - regex: 'def\s+\w+\(request\):.*?(?=return)'
+    context: "Check if @login_required or @permission_classes missing above"
+    # multi-line: will need engine to look at decorators above
+  - id: DJ002
+    name: "Raw SQL executed with user input"
+    severity: "CRITICAL"
+    patterns:
+      - regex: 'cursor\.execute\(\s*["\'].*?%.*?["\']\s*%'
+      - keywords: ["raw(", "RawSQL(", "execute("]

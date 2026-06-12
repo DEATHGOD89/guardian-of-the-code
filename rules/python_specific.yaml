@@ -1,0 +1,18 @@
+rules:
+  - id: PY001
+    name: "Assert statement used for security check"
+    severity: "HIGH"
+    description: "Assertions are removed in optimized mode (-O)"
+    languages: ["python"]
+    patterns:
+      - regex: 'assert\s+(?:user|admin|role|permission)'
+  - id: PY002
+    name: "Pickle.loads from untrusted source"
+    severity: "CRITICAL"
+    patterns:
+      - regex: 'pickle\.loads\(.*?(?:request|socket|input)'
+  - id: PY003
+    name: "Unclosed file (resource leak)"
+    severity: "MEDIUM"
+    patterns:
+      - regex: 'open\([^)]+\)(?!\s*\.close\(|\s*as\s+\w+:)'

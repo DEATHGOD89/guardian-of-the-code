@@ -1,0 +1,19 @@
+rules:
+  - id: REACT001
+    name: "dangerouslySetInnerHTML with user input"
+    severity: "CRITICAL"
+    description: "XSS risk: user-controlled HTML injected"
+    remediation: "Use DOMPurify or avoid dangerouslySetInnerHTML"
+    languages: ["javascript", "jsx", "tsx"]
+    patterns:
+      - regex: 'dangerouslySetInnerHTML=\{\{\s*__html:\s*.*?(?:props|state|context|location|params)'
+      - keywords: ["dangerouslySetInnerHTML", "__html"]
+  - id: REACT002
+    name: "eval() inside useEffect / component"
+    severity: "HIGH"
+    description: "Code injection via eval"
+    remediation: "Avoid eval; use safer alternatives"
+    languages: ["javascript", "tsx"]
+    patterns:
+      - regex: 'eval\(\s*(?:props|state|context|location)'
+      - keywords: ["eval("]

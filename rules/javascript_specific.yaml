@@ -1,0 +1,12 @@
+rules:
+  - id: JS001
+    name: "innerHTML assignment with user data"
+    severity: "HIGH"
+    languages: ["javascript"]
+    patterns:
+      - regex: '\.innerHTML\s*=\s*.*?(?:req\.|request\.|user\.)'
+  - id: JS002
+    name: "Non‑constant comparison (== vs ===)"
+    severity: "LOW"
+    patterns:
+      - regex: '==\s*(?:null|undefined|true|false)'

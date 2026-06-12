@@ -1,0 +1,12 @@
+rules:
+  - id: NG001
+    name: "bypassSecurityTrustHtml with user input"
+    severity: "CRITICAL"
+    languages: ["typescript", "javascript"]
+    patterns:
+      - regex: 'bypassSecurityTrustHtml\(\s*(?:this\.|component\.)?(?:user|input|query)'
+  - id: NG002
+    name: "Missing sanitization in [innerHTML]"
+    severity: "HIGH"
+    patterns:
+      - regex: '\[innerHTML\]="(?!sanitize).*"'

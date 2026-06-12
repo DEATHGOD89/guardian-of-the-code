@@ -1,0 +1,13 @@
+rules:
+  - id: JWT001
+    name: "JWT with 'none' algorithm allowed"
+    severity: "CRITICAL"
+    languages: ["javascript", "python", "java"]
+    patterns:
+      - regex: 'algorithms:\s*\[.*?["\']none["\']'
+      - regex: 'verify\(.*?\{\s*algorithm:\s*["\']none'
+  - id: JWT002
+    name: "Hardcoded JWT secret"
+    severity: "CRITICAL"
+    patterns:
+      - regex: 'secret\s*=\s*["\'][A-Za-z0-9_\-]{16,}["\']'

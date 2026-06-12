@@ -1,0 +1,8 @@
+rules:
+  - id: RACE001
+    name: "Non‑atomic read‑modify‑write without lock"
+    severity: "HIGH"
+    languages: ["*"]
+    patterns:
+      - regex: '(\w+)\s*=\s*\1\s*[+\-*/]'
+      - keywords: ["--", "++"]

@@ -1,0 +1,9 @@
+rules:
+  - id: CMD001
+    name: "Unsanitized input in system call"
+    severity: "CRITICAL"
+    languages: ["python", "javascript", "php", "ruby", "java", "go"]
+    patterns:
+      - regex: '(?:os\.system|subprocess\.Popen|exec\(|eval\(|system\(|`.*?\$).*?(?:request|input|param|user)'
+      - regex: 'Runtime\.exec\(.*?\+'
+      - keywords: ["shell=True", "shell_exec("]

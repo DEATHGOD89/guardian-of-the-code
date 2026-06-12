@@ -1,0 +1,8 @@
+rules:
+  - id: PATH001
+    name: "File path constructed from user input"
+    severity: "HIGH"
+    languages: ["*"]
+    patterns:
+      - regex: '(?:open\(|file_get_contents\(|readFile\(|fs\.readFileSync\().*?(?:\.\./|\+|\..*?\.\./)'
+      - keywords: ["../"]

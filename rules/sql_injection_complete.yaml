@@ -1,0 +1,16 @@
+rules:
+  - id: SQL001
+    name: "String concatenation in SQL query"
+    severity: "CRITICAL"
+    languages: ["*"]
+    patterns:
+      - regex: '(?i)(?:select|insert|update|delete).*?\+.*?(?:request|input|param|user|get|post)'
+      - regex: '(?i)(?:execute|query).*?\".*?%.*?\"\s*%'
+      - regex: '(?i)(?:execute|query).*?\".*?\".*?\s*\+\s*\$'
+      - regex: 'mysql_query\(\s*["\'].*?\.'
+  - id: SQL002
+    name: "No parameterization in raw query"
+    severity: "HIGH"
+    patterns:
+      - keywords: ["execute("]
+      - regex: 'execute\([\'"].*?[\'"]\s*\)'   # no placeholders

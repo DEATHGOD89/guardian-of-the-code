@@ -1,0 +1,7 @@
+rules:
+  - id: DEP001
+    name: "Deprecated function call"
+    severity: "LOW"
+    languages: ["python", "php", "ruby"]
+    patterns:
+      - keywords: ["cgi.escape(", "mysql_", "create_function("]

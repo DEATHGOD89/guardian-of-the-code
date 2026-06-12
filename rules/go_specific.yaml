@@ -1,0 +1,12 @@
+rules:
+  - id: GO001
+    name: "Goroutine leaks in select without default"
+    severity: "MEDIUM"
+    languages: ["go"]
+    patterns:
+      - regex: 'select\s*\{\s*case\s*<-\s*(\w+):\s*\}(?!\s*default)'
+  - id: GO002
+    name: "Unsafe use of ioutil.ReadFile with user path"
+    severity: "HIGH"
+    patterns:
+      - regex: 'ioutil\.ReadFile\(.*?\+'

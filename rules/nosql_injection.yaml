@@ -1,0 +1,8 @@
+rules:
+  - id: MONGO001
+    name: "MongoDB $where JavaScript injection"
+    severity: "CRITICAL"
+    languages: ["javascript", "python"]
+    patterns:
+      - regex: '\$where\s*:\s*["\'].*?\+.*?(?:req\.|request\.)'
+      - keywords: ["$where"]

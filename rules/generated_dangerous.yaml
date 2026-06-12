@@ -1,0 +1,141 @@
+rules:
+- id: GEN_PYTHON_EVAL
+  languages:
+  - python
+  name: Dangerous function eval called
+  patterns:
+  - regex: \beval\s*\(
+  severity: HIGH
+- id: GEN_JAVASCRIPT_EVAL
+  languages:
+  - javascript
+  name: Dangerous function eval called
+  patterns:
+  - regex: \beval\s*\(
+  severity: HIGH
+- id: GEN_PHP_EVAL
+  languages:
+  - php
+  name: Dangerous function eval called
+  patterns:
+  - regex: \beval\s*\(
+  severity: HIGH
+- id: GEN_RUBY_EVAL
+  languages:
+  - ruby
+  name: Dangerous function eval called
+  patterns:
+  - regex: \beval\s*\(
+  severity: HIGH
+- id: GEN_PYTHON_EXEC
+  languages:
+  - python
+  name: Dangerous function exec called
+  patterns:
+  - regex: \bexec\s*\(
+  severity: HIGH
+- id: GEN_JAVASCRIPT_EXEC
+  languages:
+  - javascript
+  name: Dangerous function exec called
+  patterns:
+  - regex: \bexec\s*\(
+  severity: HIGH
+- id: GEN_PHP_EXEC
+  languages:
+  - php
+  name: Dangerous function exec called
+  patterns:
+  - regex: \bexec\s*\(
+  severity: HIGH
+- id: GEN_RUBY_EXEC
+  languages:
+  - ruby
+  name: Dangerous function exec called
+  patterns:
+  - regex: \bexec\s*\(
+  severity: HIGH
+- id: GEN_PYTHON_SYSTEM
+  languages:
+  - python
+  name: Dangerous function system called
+  patterns:
+  - regex: \bsystem\s*\(
+  severity: HIGH
+- id: GEN_JAVASCRIPT_SYSTEM
+  languages:
+  - javascript
+  name: Dangerous function system called
+  patterns:
+  - regex: \bsystem\s*\(
+  severity: HIGH
+- id: GEN_PHP_SYSTEM
+  languages:
+  - php
+  name: Dangerous function system called
+  patterns:
+  - regex: \bsystem\s*\(
+  severity: HIGH
+- id: GEN_RUBY_SYSTEM
+  languages:
+  - ruby
+  name: Dangerous function system called
+  patterns:
+  - regex: \bsystem\s*\(
+  severity: HIGH
+- id: GEN_PYTHON_POPEN
+  languages:
+  - python
+  name: Dangerous function popen called
+  patterns:
+  - regex: \bpopen\s*\(
+  severity: HIGH
+- id: GEN_JAVASCRIPT_POPEN
+  languages:
+  - javascript
+  name: Dangerous function popen called
+  patterns:
+  - regex: \bpopen\s*\(
+  severity: HIGH
+- id: GEN_PHP_POPEN
+  languages:
+  - php
+  name: Dangerous function popen called
+  patterns:
+  - regex: \bpopen\s*\(
+  severity: HIGH
+- id: GEN_RUBY_POPEN
+  languages:
+  - ruby
+  name: Dangerous function popen called
+  patterns:
+  - regex: \bpopen\s*\(
+  severity: HIGH
+- id: GEN_PYTHON_SHELL_EXEC
+  languages:
+  - python
+  name: Dangerous function shell_exec called
+  patterns:
+  - regex: \bshell_exec\s*\(
+  severity: HIGH
+- id: GEN_JAVASCRIPT_SHELL_EXEC
+  languages:
+  - javascript
+  name: Dangerous function shell_exec called
+  patterns:
+  - regex: \bshell_exec\s*\(
+  severity: HIGH
+- id: GEN_PHP_SHELL_EXEC
+  languages:
+  - php
+  name: Dangerous function shell_exec called
+  patterns:
+  - regex: \bshell_exec\s*\(
+  severity: HIGH
+- id: GEN_RUBY_SHELL_EXEC
+  languages:
+  - ruby
+  name: Dangerous function shell_exec called
+  patterns:
+  - regex: \bshell_exec\s*\(
+  severity: HIGH

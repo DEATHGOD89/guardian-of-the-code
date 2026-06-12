@@ -1,0 +1,7 @@
+rules:
+  - id: BUG001
+    name: "Potential null dereference after check"
+    severity: "MEDIUM"
+    languages: ["java", "csharp", "javascript"]
+    patterns:
+      - regex: 'if\s*\(\s*\w+\s*==\s*null\s*\)\s*\{\s*.*?\}\s*.*?\w+\s*\.'  # simplistic

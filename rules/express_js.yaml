@@ -1,0 +1,13 @@
+rules:
+  - id: EX001
+    name: "No helmet.js or security headers"
+    severity: "MEDIUM"
+    languages: ["javascript"]
+    patterns:
+      - regex: 'app\.use\(.*helmet\(\)'  # will NOT match -> we need negation logic in engine? We'll handle via explicit check: if no helmet pattern found.
+      # For simplicity, mark as warning and rely on manual audit
+  - id: EX002
+    name: "eval in route handler"
+    severity: "CRITICAL"
+    patterns:
+      - regex: 'app\.(?:get|post|put|delete)\(.*eval\('

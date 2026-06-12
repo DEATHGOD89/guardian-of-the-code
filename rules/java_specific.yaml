@@ -1,0 +1,12 @@
+rules:
+  - id: JAVA001
+    name: "XML External Entity (XXE)"
+    severity: "CRITICAL"
+    languages: ["java"]
+    patterns:
+      - regex: 'DocumentBuilderFactory\.newInstance\(\)(?!.*setFeature)'
+  - id: JAVA002
+    name: "Deserialization of untrusted data"
+    severity: "CRITICAL"
+    patterns:
+      - regex: 'ObjectInputStream\(.*?(?:request|socket)'

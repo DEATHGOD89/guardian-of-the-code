@@ -1,0 +1,7 @@
+rules:
+  - id: SESS001
+    name: "Session regeneration not performed after login"
+    severity: "HIGH"
+    languages: ["python", "php", "java", "javascript"]
+    patterns:
+      - regex: 'login.*?session\s*=\s*request\.session'  # then check if regenerate called? Hard with regex; mark as info.

@@ -1,0 +1,13 @@
+rules:
+  - id: RAILS001
+    name: "Mass assignment without strong parameters"
+    severity: "HIGH"
+    languages: ["ruby"]
+    patterns:
+      - regex: 'update_attributes\(params\[:'
+      - regex: '\.update\(params\[:'
+  - id: RAILS002
+    name: "Unsafe render with user input"
+    severity: "CRITICAL"
+    patterns:
+      - regex: 'render\s+(?:inline|text|html).*params\['

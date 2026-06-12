@@ -1,0 +1,12 @@
+rules:
+  - id: SPRING001
+    name: "@PathVariable without validation"
+    severity: "MEDIUM"
+    languages: ["java"]
+    patterns:
+      - regex: '@PathVariable\s+(?!.*@Pattern|@Valid|@Size)'
+  - id: SPRING002
+    name: "Sensitive data logged"
+    severity: "HIGH"
+    patterns:
+      - regex: 'log\.(?:info|debug|trace).*?(?:password|token|secret|key)'

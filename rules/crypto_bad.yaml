@@ -1,0 +1,13 @@
+rules:
+  - id: CRYPTO01
+    name: "MD5 or SHA1 for password hashing"
+    severity: "CRITICAL"
+    languages: ["*"]
+    patterns:
+      - regex: 'hashlib\.md5\(|hashlib\.sha1\(|\bmd5\(|\bsha1\('
+      - regex: 'password_hash.*PASSWORD_DEFAULT' # not necessarily bad but use bcrypt
+  - id: CRYPTO02
+    name: "Custom encryption implementation"
+    severity: "HIGH"
+    patterns:
+      - regex: 'def\s+encrypt\(.*?\):\s*.*?return'
